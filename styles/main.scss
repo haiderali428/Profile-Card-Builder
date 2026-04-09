@@ -59,6 +59,11 @@
                 margin-bottom: $spacing-xs;
                 font-weight: 500;
                 color: $text-color;
+
+                span{
+                    color: red !important;
+                }
+               
             }
 
             &__input,
