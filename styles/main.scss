@@ -1,0 +1,238 @@
+@import "variable";
+@import "responsive";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+.profile-builder {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: $spacing-md;
+
+    &__title {
+        text-align: center;
+        color: $text-color;
+        margin-bottom: $spacing-xl;
+    }
+
+    &__container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: $spacing-xl;
+        align-items: flex-start;
+
+        @include md {
+            gap: $spacing-lg;
+        }
+
+        .form {
+            border: 1px solid $border-color;
+            border-radius: $spacing-sm;
+            padding: $spacing-lg;
+            margin-bottom: $spacing-lg;
+            width: 100%;
+            background-color: $white;
+            
+            &__fieldset {
+                border: transparent;
+                min-width: 0;
+            }
+
+            &__legend {
+                font-weight: 600;
+                margin-bottom: 20px;
+                color: $text-color;
+            }
+
+            &__group {
+                margin-bottom: $spacing-lg;
+                position: relative;
+            }
+
+            &__label {
+                display: block;
+                margin-bottom: $spacing-xs;
+                font-weight: 500;
+                color: $text-color;
+            }
+
+            &__input,
+            &__textarea {
+                width: 100%;
+                padding: $spacing-sm;
+                border: 1px solid $border-color;
+                border-radius: $spacing-xs;
+                font-size: 1rem;
+                @include transition(border-color);
+
+                &:focus {
+                    outline: none;
+                    border-color: $primary-color;
+                }
+            }
+
+            &__error {
+                color: $error-color;
+                font-size: 0.815rem;
+                margin-top: 4px;
+                display: none; 
+            }
+
+            &__color {
+                width: 50px;
+                height: 50px;
+                cursor: pointer;
+            }
+
+            &__skills {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            &__button {
+                width: 100%;
+                padding: $spacing-md;
+                background: $primary-color;
+                color: $white;
+                border: none;
+                border-radius: $spacing-xs;
+                font-size: 1rem;
+                font-weight: 600;
+                margin-top: 20px;
+                cursor: pointer;
+                @include transition;
+
+                &:hover {
+                    background: darken($primary-color, 10%);
+                }
+            }
+
+            &__global-error {
+                margin-top: $spacing-md;
+                padding: $spacing-sm;
+                background: lighten($error-color, 45%);
+                border-radius: $spacing-xs;
+                text-align: center;
+                display: none;
+            }
+        }
+    }
+
+    &__form-panel {
+        flex: 0 0 100%;
+        @include lg{
+            flex: 0 0 calc(50% - #{$spacing-xl} / 2);
+        }
+    }
+
+    &__card-panel {
+        flex: 0 0 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+
+        @include lg{
+            flex: 0 0 calc(50% - #{$spacing-xl} / 2);
+        }
+
+        &__heading {
+            font-size: 24px;
+            line-height: 130%;
+            font-weight: 600;
+            margin-bottom: 20px;
+            grid-column: 1 / -1;
+        }
+
+        @include md {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .empty-state-msg {
+            grid-column: 1 / -1;
+        }
+
+        .card {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            border-radius: $spacing-md;
+            box-shadow: $shadow;
+            text-align: center;
+            justify-content: start;
+            background-color: $white; 
+            @include transition;
+
+            &__avatar {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                margin: 0 auto;
+                background-color: rgba(0,0,0,0.1);
+                @include flex-center;
+                
+                &::after {
+                    content: "👤";
+                    font-size: 2.5rem;
+                }
+            }
+
+            &__name {
+                font-size: 1.5rem;
+                font-weight: 600;
+                margin: 0;
+            }
+
+            &__title {
+                color: $primary-color;
+                font-weight: 500;
+                margin: 0;
+            }
+
+            &__bio {
+                color: $text-color;
+                opacity: 0.8;
+                line-height: 1.4;
+                margin: 0;
+            }
+
+            &__skill-tag {
+                display: inline-block;
+                background: rgba(0,0,0,0.05);
+                padding: 4px 12px;
+                border-radius: 12px;
+                font-size: 0.8rem;
+                margin: 4px;
+            }
+        }
+        
+        #card-name-preview {
+            color: darken($primary-color, 20%);
+            font-size: 1.6rem;
+            text-decoration: underline;
+        }
+    }
+
+    .empty-state-msg {
+        text-align: center;
+        color: lighten($text-color, 30%);
+        padding: $spacing-xl;
+        font-style: italic;
+        background: $light-gray;
+        border-radius: $spacing-md;
+        border: 2px dashed darken($light-gray, 10%);
+        width: 100%;
+    }
+}
+
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $spacing-md;
+}

@@ -1,0 +1,237 @@
+/* Global Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* Layout Container */
+.profile-builder {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.profile-builder__title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.profile-builder__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+/* Form Styles */
+.form {
+    border: 1px solid #ddd;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.form__fieldset {
+    border: transparent;
+    min-width: 0;
+    margin-bottom: 1.5rem;
+}
+
+.form__legend {
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.form__group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.form__label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.form__input,
+.form__textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form__input:focus {
+    outline: none;
+    border-color: #4A90E2;
+}
+
+.form__error {
+    color: #e74c3c;
+    font-size: 0.815rem;
+    margin-top: 4px;
+    display: none;
+}
+
+.form__color {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.form__skills {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form__button {
+    width: 100%;
+    padding: 1rem;
+    background: #4A90E2;
+    color: #ffffff;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.form__button:hover {
+    background: #2b78d6;
+}
+
+/* Card Panel & Grid */
+.profile-builder__form-panel {
+    flex: 0 0 100%;
+}
+
+.profile-builder__card-panel {
+    flex: 0 0 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+@media (min-width: 1024px) {
+    .profile-builder__form-panel {
+        flex: 0 0 calc(50% - 1rem);
+    }
+    .profile-builder__card-panel {
+        flex: 0 0 calc(50% - 1rem);
+    }
+}
+
+.profile-builder__card-panel__heading {
+    font-size: 24px;
+    line-height: 130%;
+    font-weight: 600;
+    margin-bottom: 20px;
+    grid-column: 1 / -1;
+}
+
+/* 2 columns for tablet and above (768px+) */
+@media (min-width: 768px) {
+    .profile-builder__container {
+        gap: 1.5rem;
+    }
+    .profile-builder__card-panel {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.card {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    justify-content: start;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.card__avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto;
+    background-color: rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card__avatar::after {
+    content: "👤";
+    font-size: 2.5rem;
+}
+
+.card__name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* CSS Specificity Override Requirement */
+#card-name-preview {
+    color: #2b78d6;
+    font-size: 1.6rem;
+    text-decoration: underline;
+}
+
+.card__title {
+    color: #4A90E2;
+    font-weight: 500;
+    margin: 0;
+}
+
+.card__bio {
+    color: #333;
+    opacity: 0.8;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.card__skill-tag {
+    display: inline-block;
+    background: rgba(0,0,0,0.05);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    margin: 4px;
+}
+
+.empty-state-msg {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #888;
+    padding: 2rem;
+    font-style: italic;
+    background: #f5f5f5;
+    border-radius: 1rem;
+    border: 2px dashed #ccc;
+    width: 100%;
+}
