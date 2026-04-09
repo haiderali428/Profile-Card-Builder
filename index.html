@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card Builder</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <main class="profile-builder">
+        <h1 class="profile-builder__title">Profile Card Builder</h1>
+        <div class="profile-builder__container">
+            <div class="profile-builder__form-panel">
+                <form class="form" id="profileForm" novalidate>
+                    <fieldset class="form__fieldset">
+                        <legend class="form__legend">Personal Information</legend>
+                        
+                        <div class="form__group">
+                            <label class="form__label" for="fullName">Full Name *</label>
+                            <input class="form__input" type="text" id="fullName" name="fullName" required>
+                            <div class="form__error" id="nameError"></div>
+                        </div>
+                        
+                        <div class="form__group">
+                            <label class="form__label" for="jobTitle">Job Title *</label>
+                            <input class="form__input" type="text" id="jobTitle" name="jobTitle" required>
+                            <div class="form__error" id="titleError"></div>
+                        </div>
+                        
+                        <div class="form__group">
+                            <label class="form__label" for="bio">Bio</label>
+                            <textarea class="form__textarea" id="bio" name="bio" rows="4" placeholder="Tell us about yourself..."></textarea>
+                        </div>
+                        
+                        <div class="form__group">
+                            <label class="form__label" for="avatarColor">Avatar Color</label>
+                            <input class="form__color" type="color" id="avatarColor" name="avatarColor" value="#4A90E2">
+                        </div>
+                    </fieldset>            
+                    <fieldset class="form__fieldset">
+                        <legend class="form__legend">Skills</legend>
+                        <div class="form__skills">
+                            <label class="form__checkbox-label">
+                                <input type="checkbox" name="skills" value="HTML" class="form__checkbox">
+                                <span class="form__checkbox-text">HTML</span>
+                            </label>
+                            <label class="form__checkbox-label">
+                                <input type="checkbox" name="skills" value="CSS" class="form__checkbox">
+                                <span class="form__checkbox-text">CSS</span>
+                            </label>
+                            <label class="form__checkbox-label">
+                                <input type="checkbox" name="skills" value="JavaScript" class="form__checkbox">
+                                <span class="form__checkbox-text">JavaScript</span>
+                            </label>
+                            <label class="form__checkbox-label">
+                                <input type="checkbox" name="skills" value="React" class="form__checkbox">
+                                <span class="form__checkbox-text">React</span>
+                            </label>
+                        </div>
+                    </fieldset>                  
+                    <div class="form__actions">
+                        <button type="submit" class="form__button" id="generateBtn">Generate Card</button>
+                    </div>
+                    
+                    <div class="form__global-error" id="globalError"></div>
+                </form>
+            </div>        
+            <div class="profile-builder__card-panel" id="cardsContainer">
+                <h2 class="profile-builder__card-panel__heading">Users Cards</h2>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
